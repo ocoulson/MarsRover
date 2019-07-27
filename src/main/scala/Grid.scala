@@ -1,10 +1,9 @@
-class Grid(xMax: Int, yMax: Int) {
+case class Grid(xMax: Int, yMax: Int)
 
-  def isOnGrid(point: Point): Boolean = {
-    point.x <= xMax && point.x >= 0 &&
-    point.y <= yMax && point.y >= 0
+
+case class Point(x: Int, y: Int) {
+  def isOnGrid(grid: Grid): Boolean = {
+    x <= grid.xMax && x >= 0 &&
+      y <= grid.yMax && y >= 0
   }
 }
-
-
-case class Point(x: Int, y: Int)
