@@ -5,11 +5,11 @@ class AutoPilot(grid: Grid) {
   private def generateNodeMap(grid: Grid): Map[Point, Set[Point]] = {
     grid.getAllPoints.map(
       point =>
-        point -> getNeigbours(point)
+        point -> getNeighbours(point)
     ).toMap
   }
 
-  private def getNeigbours(point: Point): Set[Point] = {
+  private def getNeighbours(point: Point): Set[Point] = {
     val north = point.copy(y = point.y + 1)
     val south = point.copy(y = point.y - 1)
     val east = point.copy(x = point.x + 1)
