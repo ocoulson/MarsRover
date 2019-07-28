@@ -11,11 +11,12 @@ case class Rover(currentPosition: Point, currentFacing: Direction, grid: Grid, h
           case West => Point(currentPosition.x - 1, currentPosition.y)
         }
         val correctedPosition =
-          if (newPosition.isOnGrid(grid)) newPosition
-          else {
             if (newPosition.x < 0) newPosition.copy(x = grid.xMax)
-            else newPosition.copy(y = grid.yMax)
-          }
+            else if (newPosition.x > grid.xMax) newPosition.copy(x = 0)
+            else if (newPosition.y < 0) newPosition.copy(y = grid.yMax)
+            else if (newPosition.y > grid.yMax) newPosition.copy(y = 0)
+            else newPosition
+
         Rover(correctedPosition, currentFacing, grid, history :+ currentState)
 
       case RotateClockwise =>
