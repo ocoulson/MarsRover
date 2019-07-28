@@ -42,22 +42,7 @@ class AutoPilot(rover: Rover) {
     }
   }
 
-  case class Node(point: Point, distance: Int)
-
-  /**
-    * Start to implement Djikstras algorithm for finding the shortest path,
-    * 1) Keep lists of visited and unvisited nodes - set all nodes to unvisited
-    * 2) Keep map of nodes to 'tentative distance' - distance in this case I'll consider to be number of instructions
-    * 3) Set all initial distances to MaxValue of Int, current node set to 0
-    *
-    * 4) Visit current node - Look at neighbours of current node, considering current facing determine number of instructions to
-    *   get to each (1 for directly ahead, 2 for the ones to left / right, 3 for behind)
-    * 5) In the map of nodes to paths, if the path from the current node to each neighbour is less than the distance
-    *   already in there, replace it in the map with the shorter one, or just leave the existing value
-    * 6) move current node to visited set
-    * 7) if destination is now visited, end algorithm, return map value for destination point
-    * 8) otherwise visit the unvisited node with the smallest 'tentative distance' and visit it
-    */
+  // Implement Djikstra's algorithm as described in README
 
   case class ShortestPath(count: Int, instructions: List[Instruction])
 
