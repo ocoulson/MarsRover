@@ -1,4 +1,4 @@
-trait Direction {
+sealed trait Direction {
   def rotate90Clockwise: Direction
   def rotate90AntiClockwise: Direction
 }
